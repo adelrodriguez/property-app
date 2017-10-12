@@ -1,0 +1,15 @@
+form(action="/busqueda" method="GET")
+  .form-group.row
+    .col-md-10.mx-auto
+      .input-group
+        input.form-control.form-control-lg(
+          type="text"
+          placeholder="Busca una propiedad"
+          aria-label="Busca una propiedad"
+          name="q"
+        )
+        span.input-group-btn
+          button.btn.btn-lg.btn-outline-info(type="submit")
+            i.fa.fa-search(aria-hidden="true")
+            | 
+            | Búsqueda

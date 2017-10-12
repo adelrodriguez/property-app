@@ -3,6 +3,7 @@ extends ../layout
 block content
   - var count = 0;
   .container
+    include ../includes/search-bar
     .card-columns
       each property in properties
         a(href='/propiedades/' + property._id)  
