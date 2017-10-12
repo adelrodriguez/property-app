@@ -1,10 +1,11 @@
 {
-  "name": "code-challenge-kastaco",
+  "name": "property-app",
   "version": "1.0.0",
   "description": "Aplicación para manejo de propiedades",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Adel Rodríguez",
   "license": "ISC",
@@ -13,5 +14,14 @@
     "method-override": "^2.3.10",
     "mongoose": "^4.12.1",
     "pug": "^2.0.0-rc.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adelrodriguez/property-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adelrodriguez/property-app/issues"
+  },
+  "homepage": "https://github.com/adelrodriguez/property-app#readme"
 }
