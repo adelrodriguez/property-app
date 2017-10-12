@@ -13,13 +13,13 @@ block content
             p #{property.address}
         ul.list-group.list-group-flush
           li.list-group-item 
-            span País
+            span: strong País
             span.float-right #{property.country}
           li.list-group-item 
-            span Valoración
+            span: strong Valoración
             span.float-right #{property.price}
           li.list-group-item
-            span Dimensiones
+            span: strong Dimensiones
             span.float-right #{property.dimensions} m<sup>2</sup>
         .card-footer
           a.btn.btn-outline-warning(href='/propiedades/'+ property._id + '/editar')
