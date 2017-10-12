@@ -1,0 +1,104 @@
+extends ../layout
+
+block content
+  div.container
+    h1.text-center Agregar nueva propiedad
+    form.container.col-md-8(action="/propiedades" method="POST")
+      .form-group
+        label(for="descriptionInput") Descripción
+        input.form-control.form-control-lg(
+          type="text"
+          id="descriptionInput"
+          name="description"
+          placeholder="Descripción"
+          required
+        )
+      .form-group
+        label(for="addressInput") Dirección
+        input.form-control.form-control-lg(
+          type="text"
+          id="addressInput"
+          name="address"
+          placeholder="Dirección"
+          required
+        )
+      .form-row
+        .form-group.col-md-4
+          label(for="cityInput") Ciudad
+          input.form-control.form-control-lg(
+            type="text"
+            id="cityInput"
+            name="city"
+            placeholder="Ciudad"
+            required
+          )
+        .form-group.col-md-4
+          label(for="provinceInput") Provincia
+          input.form-control.form-control-lg(
+            type="text"
+            id="provinceInput"
+            name="province"
+            placeholder="Provincia"
+            required
+          )
+        .form-group.col-md-4
+          label(for="countryInput") País
+          input.form-control.form-control-lg(
+            type="text"
+            id="countryInput"
+            name="country"
+            placeholder="País"
+            required
+          )
+      .form-row
+        .form-group.col-md-6
+          label(for="valueInput") Valoración
+          .input-group
+            .input-group-addon DOP
+            input.form-control.form-control-lg(
+              type="number"
+              id="valueInput"
+              name="value"
+              placeholder="Valor de la propiedad"
+              min="0.01"
+              step="0.01"
+              required
+            )
+          small.form-text.text-muted El valor debe ser en pesos dominicanos (DOP)
+        .form-group.col-md-6
+          label(for="dimensionsInput") Dimensión
+          div.input-group
+            input.form-control.form-control-lg(
+              type="number"
+              id="dimensionsInput"
+              name="dimensions"
+              placeholder="Dimensión"
+              min="1"
+              step="1"
+              required
+            )
+            div.input-group-addon m<sup>2</sup>
+          small.form-text.text-muted La dimensión debe ser en metros cuadrados (m<sup>2</sup>)
+      .form-check
+        label.custom-control.custom-checkbox
+          input.custom-control-input(
+            type="checkbox"
+            id="imageCheck"
+          )
+          span.custom-control-indicator
+          span.custom-control-description Incluir imagen en este listado
+      .form-group(
+        id="imageInput"
+        hidden
+      )
+        label(for="imageInput") Imagen
+        input.form-control.form-control-lg(
+          type="text" 
+          name="image"
+          placeholder="Inserte URL de la imagen"
+        )
+      .form-group
+        button.btn.btn-lg.btn-primary.btn-block Submit
+
+  script
+    include ../../public/scripts/form.js

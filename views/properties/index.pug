@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  - var count = 0;
+  .container
+    .card-columns
+      each property in properties
+        a(href='/propiedades/' + property._id)  
+          div.card
+            if (property.image)
+              img.card-img-top(src=property.image)
+            div.card-body
+              h4.card-title #{property.description}
+              p.card-text En #{property.city}, #{property.province}
+            div.card-footer
+              span #{property.price}
+              span.float-right #{property.dimensions} m<sup>2</sup>                    

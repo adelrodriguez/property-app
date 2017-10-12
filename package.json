@@ -1,0 +1,17 @@
+{
+  "name": "code-challenge-kastaco",
+  "version": "1.0.0",
+  "description": "Aplicación para manejo de propiedades",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adel Rodríguez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.12.1",
+    "pug": "^2.0.0-rc.4"
+  }
+}
