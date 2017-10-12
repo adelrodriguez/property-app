@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
-// require the seed
-const seedDB = require('./seed');
-
 // Requiring routes
 const indexRoutes = require('./routes/')
 const propertiesRoutes = require('./routes/properties');
@@ -36,9 +33,6 @@ app.use(express.static('public'));
 // Routes setup
 app.use('/', indexRoutes);
 app.use('/propiedades', propertiesRoutes);
-
-// Seed the database
-seedDB();
 
 app.listen(PORT, () => {
   console.log("Server has started..."); 
