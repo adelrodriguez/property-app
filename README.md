@@ -27,3 +27,4 @@ Run `npm install` to download all packages, then `node app.js` to run. Applicati
 * [Pug](https://pugjs.org/) - Templating engine
 * [express-session](https://github.com/expressjs/session) - Middleware session manager
 * [connect-flash](https://github.com/jaredhanson/connect-flash) - Middleware for flash messages
+* [Boostrap 4](https://getbootstrap.com/) - CSS framework
