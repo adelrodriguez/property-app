@@ -25,3 +25,5 @@ Run `npm install` to download all packages, then `node app.js` to run. Applicati
 * [Express](https://nodejs.org/en/) - Web framework
 * [Mongoose](http://mongoosejs.com/) - Object modeling for the database
 * [Pug](https://pugjs.org/) - Templating engine
+* [express-session](https://github.com/expressjs/session) - Middleware session manager
+* [connect-flash](https://github.com/jaredhanson/connect-flash) - Middleware for flash messages

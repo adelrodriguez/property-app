@@ -33,6 +33,7 @@ router.post('/', (req, res) => {
   Property.create(req.body.property, (err, createdProperty) => {
     if (err) {
       console.log(err);
+      // If there's an error, flash the error
       req.flash('error', err.message);
       res.redirect('/propiedades/nueva');
     } else {
@@ -78,6 +79,7 @@ router.put('/:id', (req, res) => {
   // Find and update the property
   Property.findByIdAndUpdate(req.params.id, req.body.property, (err, updatedProperty) => {
     if (err) {
+      // If there's an error, flash the error
       console.log(err);
       req.flash('error', err.message);
       res.redirect('/propiedades/' + req.params.id);
@@ -93,6 +95,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   Property.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
+      // If there's an error, flash the error
       console.log(err);
       req.flash('error', err.message);
       res.redirect('/propiedades/');
