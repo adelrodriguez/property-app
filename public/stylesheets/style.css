@@ -1,17 +1,11 @@
-html, body {
-  height: 100%;
-}
-
 body {
   background: #eee;
-  display: flex;
-  flex-direction: column;
 }
 
 .content {
   margin-top: 20px;
   margin-bottom: 20px;
-  flex: 1 0 auto;
+  min-height: calc(100vh - 160px);
 }
 
 .add-property {
