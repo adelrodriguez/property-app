@@ -25,14 +25,26 @@ const app = express();
 // Express setup
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
+
 // Override POST methods for PUT and DELETE requests
 app.use(methodOverride('_method'));
+
 // Require static files such as CSS, JS, and images
 app.use(express.static('public'));
 
 // Routes setup
 app.use('/', indexRoutes);
 app.use('/propiedades', propertiesRoutes);
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send("Lo sentimos, algo salió mal...")
+});
+// 404 handler
+app.use((req, res, next) => {
+  res.status(404).send("No podemos encontrar lo que pides...")
+})
 
 app.listen(PORT, () => {
   console.log("Server has started..."); 
