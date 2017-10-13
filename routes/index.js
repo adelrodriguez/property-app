@@ -22,6 +22,8 @@ router.get('/busqueda', (req, res) => {
   }, (err, foundProperties) => {
     if (err) {
       console.log(err);
+      req.flash('error', "Su búsqueda no pudo ser realizada");
+      res.redirect('/propiedades');
     } else {
       res.render('properties/index', {
         title: "Propiedades encontradas",

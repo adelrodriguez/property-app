@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
   Property.find({}, (err, allProperties) => {
     if (err) {
       console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/propiedades');
     } else {
       res.render('properties/index', {
         title: "Todas las propiedades",
@@ -27,24 +29,16 @@ router.get('/nueva', (req, res) => {
 
 // CREATE - add new property
 router.post('/', (req, res) => {
-  // Create object with form data
-  let newProperty = {
-    description: req.body.description,
-    image: req.body.image,
-    address: req.body.address,
-    city: req.body.city,
-    province: req.body.province,
-    country: req.body.country,
-    value: req.body.value,
-    dimensions: req.body.dimensions
-  }
   // Create new property in the database
-  Property.create(newProperty, (err, createdProperty) => {
+  Property.create(req.body.property, (err, createdProperty) => {
     if (err) {
       console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/propiedades/nueva');
     } else {
       // After creating a new property, redirect to index
-      res.redirect('/propiedades')
+      req.flash('success', "¡Has creado una nueva propiedad!");
+      res.redirect('/propiedades');
     }
   });
 });
@@ -55,6 +49,8 @@ router.get('/:id', (req, res) => {
   Property.findById(req.params.id, (err, foundProperty) => {
     if (err) {
       console.log(err);
+      req.flash('error', "No pudimos encontrar esa propiedad");
+      res.redirect('/propiedades');
     } else {
       // Show found property
       res.render('properties/show', { property: foundProperty })
@@ -68,6 +64,8 @@ router.get('/:id/editar', (req, res) => {
   Property.findById(req.params.id, (err, foundProperty) => {
     if (err) {
       console.log(err);
+      req.flash('error', "No pudimos encontrar esa propiedad");
+      res.redirect('/propiedades');
     } else {
       // Show edit property form
       res.render('properties/edit', { property: foundProperty, title: "Editar propiedad" })
@@ -81,8 +79,11 @@ router.put('/:id', (req, res) => {
   Property.findByIdAndUpdate(req.params.id, req.body.property, (err, updatedProperty) => {
     if (err) {
       console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/propiedades/' + req.params.id);
     } else {
       // Redirect to updated property
+      req.flash('success', "La propiedad ha sido actualizada exitosamente.");
       res.redirect('/propiedades/' + req.params.id);
     }
   });
@@ -93,8 +94,11 @@ router.delete('/:id', (req, res) => {
   Property.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       console.log(err);
+      req.flash('error', err.message);
+      res.redirect('/propiedades/');
     } else {
       // After deleting property, redirect to index
+      req.flash('success', "La propiedad ha sido eliminada exitosamente.")
       res.redirect('/propiedades');
     }
   });
