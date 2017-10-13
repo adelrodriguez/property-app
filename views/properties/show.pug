@@ -1,33 +1,32 @@
 extends ../layout
 
 block content
-  .container
-    .col-md-8.mx-auto
-      .card
-        if (property.image)
-          img.card-img-top(src=property.image)
-        .card-body
-          h1.card-title.display-4 #{property.description}
-          .card-text
-            p.lead En #{property.city}, #{property.province}
-            p #{property.address}
-        ul.list-group.list-group-flush
-          li.list-group-item 
-            span: strong País
-            span.float-right #{property.country}
-          li.list-group-item 
-            span: strong Valoración
-            span.float-right #{property.price}
-          li.list-group-item
-            span: strong Dimensiones
-            span.float-right #{property.dimensions} m<sup>2</sup>
-        .card-footer
-          a.btn.btn-outline-warning(href='/propiedades/'+ property._id + '/editar')
-            i.fa.fa-pencil-square-o(aria-hidden="true")
-            |
-            | Editar
-          form.delete-form.float-right(action="/propiedades/" + property._id + "?_method=DELETE" method="POST")  
-            button.btn.btn-outline-danger
-              i.fa.fa-trash-o(aria-hidden="true")
-              | 
-              | Borrar
+  .col-md-8.mx-auto
+    .card
+      if (property.image)
+        img.card-img-top(src=property.image)
+      .card-body
+        h1.card-title.display-4 #{property.description}
+        .card-text
+          p.lead En #{property.city}, #{property.province}
+          p #{property.address}
+      ul.list-group.list-group-flush
+        li.list-group-item 
+          span: strong País
+          span.float-right #{property.country}
+        li.list-group-item 
+          span: strong Valoración
+          span.float-right #{property.price}
+        li.list-group-item
+          span: strong Dimensiones
+          span.float-right #{property.dimensions} m<sup>2</sup>
+      .card-footer
+        a.btn.btn-outline-warning(href='/propiedades/'+ property._id + '/editar')
+          i.fa.fa-pencil-square-o(aria-hidden="true")
+          |
+          | Editar
+        form.delete-form.float-right(action="/propiedades/" + property._id + "?_method=DELETE" method="POST")  
+          button.btn.btn-outline-danger
+            i.fa.fa-trash-o(aria-hidden="true")
+            | 
+            | Borrar

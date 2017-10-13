@@ -1,91 +1,90 @@
 extends ../layout
 
 block content
-  div.container
-    h1.text-center Editar propiedad
-    form.container.col-md-8(action="/propiedades/" + property._id +"?_method=PUT" method="POST")
-      .form-group
-        label(for="descriptionInput") Descripción
+  h1.text-center Editar propiedad
+  form.container.col-md-8(action="/propiedades/" + property._id +"?_method=PUT" method="POST")
+    .form-group
+      label(for="descriptionInput") Descripción
+      input.form-control(
+        type="text"
+        id="descriptionInput"
+        name="property[description]"
+        value=property.description
+        required
+      )
+    .form-group
+      label(for="imageInput") Imagen
+      input.form-control(
+        type="text"
+        id="imageInput"
+        name="property[image]"
+        value=property.image
+      )
+    .form-group
+      label(for="addressInput") Dirección
+      input.form-control(
+        type="text"
+        id="addressInput"
+        name="property[address]"
+        value=property.address
+        required
+      )
+    .form-row
+      .form-group.col-md-4
+        label(for="cityInput") Ciudad
         input.form-control(
           type="text"
-          id="descriptionInput"
-          name="property[description]"
-          value=property.description
+          id="cityInput"
+          name="property[city]"
+          value=property.city
           required
         )
-      .form-group
-        label(for="imageInput") Imagen
+      .form-group.col-md-4
+        label(for="provinceInput") Provincia
         input.form-control(
           type="text"
-          id="imageInput"
-          name="property[image]"
-          value=property.image
-        )
-      .form-group
-        label(for="addressInput") Dirección
-        input.form-control(
-          type="text"
-          id="addressInput"
-          name="property[address]"
-          value=property.address
+          id="provinceInput"
+          name="property[province]"
+          value=property.province
           required
         )
-      .form-row
-        .form-group.col-md-4
-          label(for="cityInput") Ciudad
-          input.form-control(
-            type="text"
-            id="cityInput"
-            name="property[city]"
-            value=property.city
+      .form-group.col-md-4
+        label(for="countryInput") País
+        input.form-control(
+          type="text"
+          id="countryInput"
+          name="property[country]"
+          value=property.country
+          required
+        )
+    .form-row
+      .form-group.col-md-6
+        label(for="valueInput") Valoración
+        div.input-group
+          .input-group-addon DOP
+          input.form-control.form-control-lg(
+            type="number"
+            id="valueInput"
+            name="property[value]"
+            value=property.value
+            min="0.01"
+            step="0.01"
             required
           )
-        .form-group.col-md-4
-          label(for="provinceInput") Provincia
-          input.form-control(
-            type="text"
-            id="provinceInput"
-            name="property[province]"
-            value=property.province
+        small.form-text.text-muted El valor debe ser en pesos dominicanos (DOP)
+      .form-group.col-md-6
+        label(for="dimensionsInput") Dimensión
+        div.input-group
+          input.form-control.form-control-lg(
+            type="number"
+            id="dimensionsInput"
+            name="property[dimensions]"
+            value=property.dimensions
+            min="1"
+            step="1"
             required
           )
-        .form-group.col-md-4
-          label(for="countryInput") País
-          input.form-control(
-            type="text"
-            id="countryInput"
-            name="property[country]"
-            value=property.country
-            required
-          )
-      .form-row
-        .form-group.col-md-6
-          label(for="valueInput") Valoración
-          div.input-group
-            .input-group-addon DOP
-            input.form-control.form-control-lg(
-              type="number"
-              id="valueInput"
-              name="property[value]"
-              value=property.value
-              min="0.01"
-              step="0.01"
-              required
-            )
-          small.form-text.text-muted El valor debe ser en pesos dominicanos (DOP)
-        .form-group.col-md-6
-          label(for="dimensionsInput") Dimensión
-          div.input-group
-            input.form-control.form-control-lg(
-              type="number"
-              id="dimensionsInput"
-              name="property[dimensions]"
-              value=property.dimensions
-              min="1"
-              step="1"
-              required
-            )
-            div.input-group-addon m<sup>2</sup>
-          small.form-text.text-muted La dimensión debe ser en metros cuadrados (m<sup>2</sup>)
-      .form-group
-        button.btn.btn-lg.btn-primary.btn-block Submit
+          div.input-group-addon m<sup>2</sup>
+        small.form-text.text-muted La dimensión debe ser en metros cuadrados (m<sup>2</sup>)
+    .form-group
+      button.btn.btn-lg.btn-primary.btn-block Submit

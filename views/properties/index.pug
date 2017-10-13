@@ -1,19 +1,17 @@
 extends ../layout
 
 block content
-  - var count = 0;
-  .container
-    include ../includes/search-bar
-    .card-columns
-      each property in properties
-        a(href='/propiedades/' + property._id)  
-          div.card
-            if (property.image)
-              img.card-img-top(src=property.image)
-            div.card-body
-              h4.card-title #{property.description}
-              p.card-text En #{property.city}, #{property.province}
-            div.card-footer
-              span.price
-                strong #{property.price}
-              span.float-right #{property.dimensions} m<sup>2</sup>                    
+  include ../includes/search-bar
+  .card-columns
+    each property in properties
+      a(href='/propiedades/' + property._id)  
+        .card
+          if (property.image)
+            img.card-img-top(src=property.image)
+          .card-body
+            h4.card-title #{property.description}
+            p.card-text En #{property.city}, #{property.province}
+          .card-footer
+            span.price
+              strong #{property.price}
+            span.float-right #{property.dimensions} m<sup>2</sup>                    
