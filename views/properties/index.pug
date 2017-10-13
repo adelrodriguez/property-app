@@ -2,6 +2,8 @@ extends ../layout
 
 block content
   include ../includes/search-bar
+  .container
+    a.add-property.btn.btn-success.btn-lg.btn-block.col-md-9.mx-auto(href="/propiedades/nueva") Agregar nueva propiedad
   .card-columns
     each property in properties
       a(href='/propiedades/' + property._id)  
